@@ -8,7 +8,7 @@
 
 GitHub: https://github.com/zen0113/VRFinal
 
-주요 영상:
+주요 영상: https://youtu.be/qkjWXcMuf94
 
 
 
