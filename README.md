@@ -11,9 +11,9 @@
 
 <br>
 
-## Overview
+## 📌 Overview
 
-**차원너머(Dimension Beyond)**는  
+차원너머(Dimension Beyond)는  
 XR Interaction Toolkit을 기반으로 개발된  
 **VR 포탈 기반 퍼즐 탈출 & 보스 레이드 게임**입니다.
 
@@ -42,7 +42,7 @@ VR 환경에서의 직관적인 공간 상호작용에 집중했습니다.
 
 <br><br><br>
 
-## Demo
+## 🎮 Demo
 
 <div align="center">
 
@@ -55,7 +55,7 @@ VR 환경에서의 직관적인 공간 상호작용에 집중했습니다.
 
 <br><br><br>
 
-## Core Systems
+## 💻 Core Systems
 
 ### Raycast Portal & Teleport System
 
@@ -111,7 +111,7 @@ XR Interaction Toolkit을 커스터마이징했습니다.
 
 <br><br><br>
 
-## Stage & Combat Design
+## 🎯 Stage & Combat Design
 
 ### Stage Structure
 
@@ -133,7 +133,15 @@ XR Interaction Toolkit을 커스터마이징했습니다.
 
 <br><br><br>
 
-## Technical Stack
+## 🛠 Technical Stack
+![Unity](https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
+![XR Interaction Toolkit](https://img.shields.io/badge/XR%20Interaction%20Toolkit-2C2255?style=for-the-badge)
+
+
+</div>
+
+<br>
 
 **주요 기술 요소**
 
@@ -145,7 +153,7 @@ XR Interaction Toolkit을 커스터마이징했습니다.
 
 <br><br><br>
 
-## Lessons Learned
+## 📚 Lessons Learned
 
 이번 프로젝트를 통해
 다음과 같은 경험을 얻었습니다.
