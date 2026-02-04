@@ -1,43 +1,164 @@
-차원 너머 (VR 방탈출 및 보스전) - 1인 개발 프로젝트
-📌 프로젝트 개요
-프로젝트 명: 차원 너머 (Beyond Dimensions)
 
-개발 기간: 2024.12.6 ~ 2024.12.16
+<!-- ===================== -->
+<!--  GitHub Project README -->
+<!-- ===================== -->
 
-핵심 컨셉: 게임 '포탈'에서 영감을 받아, 공간 이동(포탈)을 핵심 기믹으로 활용한 VR 방탈출 및 보스전 콘텐츠입니다. 1인 개발로 모든 시스템 설계와 구현을 총괄했습니다.
+<div align="center">
 
-GitHub: https://github.com/zen0113/VRFinal
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Dimension%20Beyond&fontSize=60&animation=twinkling)
 
-주요 영상: https://youtu.be/qkjWXcMuf94
+</div>
 
+<br>
 
+## Overview
 
-🚀 주요 역할 및 핵심 구현 내용
-1. VR 상호작용 시스템 설계 및 개발
-Unity XR Interaction Toolkit을 기반으로 직관적인 VR 상호작용 시스템을 구축했습니다.
+**차원너머(Dimension Beyond)**는  
+XR Interaction Toolkit을 기반으로 개발된  
+**VR 포탈 기반 퍼즐 탈출 & 보스 레이드 게임**입니다.
 
-물체를 잡고(Grab), 던지는(Throw) 물리 기반 상호작용과 버튼, 레버 등 환경 오브젝트와의 정밀한 조작 기능을 구현하여 높은 몰입감을 제공했습니다.
+플레이어는 VR 컨트롤러를 사용해  
+직접 포탈을 생성하고, 물체를 집어 던지며,  
+공간을 이동하고 전투에 참여합니다.
 
-2. 핵심 기믹: 포탈 시스템 구현
-플레이어와 특정 오브젝트가 실시간으로 공간을 넘나들 수 있는 '포탈' 시스템을 직접 설계하고 구현했습니다.
+Raycast 기반 포탈 생성,  
+물리 엔진과 결합된 투척 메커닉을 통해  
+VR 환경에서의 직관적인 공간 상호작용에 집중했습니다.
 
-포탈 건너편의 모습을 왜곡 없이 렌더링하고, 포탈 통과 시 오브젝트의 물리적 속성(위치, 속도, 각도)이 자연스럽게 유지되도록 로직을 개발했습니다. 이는 게임의 모든 퍼즐을 관통하는 핵심 기술입니다.
+<br><br>
 
-3. 방탈출 퍼즐 및 레벨 디자인
-포탈 시스템을 활용하여 공간을 왜곡하고 사물의 위치를 옮겨야만 해결할 수 있는 입체적인 퍼즐들을 기획하고 제작했습니다.
+### Project Information
 
-'오브젝트 이동', '버튼 활성화', '경로 개척' 등 다양한 논리적 과제를 단계별로 배치하여 성취감을 느낄 수 있는 레벨 흐름을 완성했습니다.
+<div align="center">
 
-4. 다이나믹한 보스전 메커니즘 개발
-프로젝트의 최종 콘텐츠로, 다중 패턴을 가진 보스전을 구현했습니다.
+| 항목 | 내용 |
+| :-- | :-- |
+| 개발 기간 | 2024.12.06 ~ 2024.12.16 (10일) |
+| 플랫폼 | Unity VR (Meta Quest) |
+| 개발 형태 | 1인 개발 |
+| 역할 | 프로그래밍 / 게임 기획 |
 
-보스의 약점을 공략하고, 탄환을 회피하며, 포탈을 전략적으로 활용해야 하는 복합적인 전투 메커니즘을 개발하여 도전적인 플레이 경험을 제공했습니다.
+</div>
 
-🛠️ 사용 기술
-Game Engine: Unity (2022.3.21f1)
+<br><br><br>
 
-Language: C#
+## Demo
 
-VR SDK: XR Interaction Toolkit, Oculus SDK
+<div align="center">
 
-Hardware: Meta Quest 2
+| 플레이 화면 | 설명 |
+| :--: | :-- |
+| <img src="https://github.com/zen0113/DimensionBeyond/blob/main/stage1.gif?raw=true" width="300"/> <img src="https://github.com/zen0113/DimensionBeyond/blob/main/stage2.gif?raw=true" width="300"/> | 포탈건을 활용한 이동 및 퍼즐 해결 |
+| <img src="https://github.com/zen0113/DimensionBeyond/blob/main/boss.gif?raw=true" width="300"/> | 물리 기반 투척과 회피를 요구하는 보스 전투 |
+
+</div>
+
+<br><br><br>
+
+## Core Systems
+
+### Raycast Portal & Teleport System
+
+어떤 각도의 벽면에서도  
+포탈이 자연스럽게 생성되고,  
+이동 시 플레이어가 지형에 끼지 않도록 설계하는 것이 핵심 과제였습니다.
+
+이를 위해  
+Raycast 결과의 법선 벡터를 기준으로  
+포탈의 회전과 텔레포트 좌표를 계산했습니다.
+
+* `RaycastHit.normal`을 기반으로 포탈 회전값 계산
+* `Quaternion.LookRotation`을 사용해 벽면을 등지는 방향 유지
+* 텔레포트 시 출구 방향으로 거리 보정하여 안전한 이동 보장
+
+```csharp
+private void CreatePortal(Vector3 hitPoint, Vector3 surfaceNormal) {
+    Quaternion rotation = Quaternion.LookRotation(surfaceNormal);
+    portalA = Instantiate(portalPrefabA, hitPoint, rotation);
+}
+
+public Vector3 GetTeleportDestination(Transform targetPortal) {
+    return targetPortal.position + targetPortal.forward * 1.0f;
+}
+````
+
+<br><br>
+
+### VR Physics Interaction
+
+VR 특유의 손 동작이
+자연스럽게 게임 플레이로 이어지도록
+XR Interaction Toolkit을 커스터마이징했습니다.
+
+* `XRGrabInteractable` 이벤트 기반 물체 잡기
+* 투척 시 Grab 해제 후 `AddRelativeForce` 적용
+* 로컬 좌표계를 기준으로 한 일관된 투척 궤적 구현
+
+이를 통해
+플레이어의 손 동작과
+물리 결과 사이의 이질감을 최소화했습니다.
+
+<br><br>
+
+### Event-driven & Feedback System
+
+전투와 상호작용의 타격감을 강화하기 위해
+이벤트 기반 구조를 도입했습니다.
+
+* `UnityEvent`를 활용해 보스 피격 / 페이즈 전환 처리
+* 코드 수정 없이 인스펙터에서 사운드 및 이펙트 연결
+* 카메라 쉐이크와 컨트롤러 진동을 연동한 피드백 설계
+
+<br><br><br>
+
+## Stage & Combat Design
+
+### Stage Structure
+
+게임은
+튜토리얼 → 응용 → 전투
+구조로 단계적으로 확장됩니다.
+
+1. 포탈건 조작 학습 및 큐브 이동 퍼즐
+2. 다층 구조에서의 정밀한 포탈 활용
+3. 보스전: 폭탄 투척과 레이저 회피 중심 전투
+
+<br>
+
+### Interaction Design
+
+* 포탈을 통한 공간 이동
+* 물리 기반 오브젝트 투척
+* VR 시점에서의 거리 감각과 위치 인지 강화
+
+<br><br><br>
+
+## Technical Stack
+
+**주요 기술 요소**
+
+* Unity XR Interaction Toolkit (Action-based)
+* Raycast & Vector Mathematics
+* Physics-based Grab & Throw
+* Event-driven Architecture
+* Haptic Feedback & Camera Shake
+
+<br><br><br>
+
+## Lessons Learned
+
+이번 프로젝트를 통해
+다음과 같은 경험을 얻었습니다.
+
+* 법선 벡터와 전방 벡터를 활용한 3D 공간 제어 이해
+* VR 환경에서 텔레포트 시 UX 안정성이 얼마나 중요한지 체감
+* 이벤트 기반 구조가 유지보수와 확장성에 효과적임을 학습
+* 물리 엔진과 사용자 입력을 결합한 상호작용 설계 경험
+
+<br><br><br>
+
+<div align="center">
+
+![footer](https://capsule-render.vercel.app/api?type=waving\&color=gradient\&customColorList=6,11,20\&height=120\&section=footer)
+
+</div>
