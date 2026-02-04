@@ -115,7 +115,7 @@ XR Interaction Toolkit을 커스터마이징했습니다.
 
 ### Stage Structure
 <img src="https://github.com/zen0113/DimensionBeyond/blob/main/007.png?raw=true" width="500"/> <img src="https://github.com/zen0113/DimensionBeyond/blob/main/008.png?raw=true" width="500"/> 
-<img src="https://github.com/zen0113/DimensionBeyond/blob/main/009.png?raw=true" width="500"/> <img src="https://github.com/zen0113/DimensionBeyond/blob/main/010.png?raw=true" width="500"/> 
+<img src="https://github.com/zen0113/DimensionBeyond/blob/main/010.png?raw=true" width="500"/> 
 
 
 게임은
