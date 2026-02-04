@@ -48,8 +48,8 @@ VR 환경에서의 직관적인 공간 상호작용에 집중했습니다.
 
 | 플레이 화면 | 설명 |
 | :--: | :-- |
-| <img src="https://github.com/zen0113/DimensionBeyond/blob/main/stage1.gif?raw=true" width="300"/> <img src="https://github.com/zen0113/DimensionBeyond/blob/main/stage2.gif?raw=true" width="300"/> | 포탈건을 활용한 이동 및 퍼즐 해결 |
-| <img src="https://github.com/zen0113/DimensionBeyond/blob/main/boss.gif?raw=true" width="300"/> | 물리 기반 투척과 회피를 요구하는 보스 전투 |
+| <img src="https://github.com/zen0113/DimensionBeyond/blob/main/DimensionBeyond_1.gif?raw=true" width="300"/> <img src="https://github.com/zen0113/DimensionBeyond/blob/main/DimensionBeyond_4.gif?raw=true" width="300"/> | 포탈건을 활용한 이동 및 퍼즐 해결 |
+| <img src="https://github.com/zen0113/DimensionBeyond/blob/main/DimensionBeyond_2.gif?raw=true" width="300"/> <img src="https://github.com/zen0113/DimensionBeyond/blob/main/DimensionBeyond_3.gif?raw=true" width="300"/> | 물리 기반 투척과 회피를 요구하는 보스 전투 |
 
 </div>
 
